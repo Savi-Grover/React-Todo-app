@@ -5,7 +5,7 @@ import { PencilIcon } from '@heroicons/react/24/outline';
 import { Pencil } from 'heroicons-react';
 import { TrashIcon } from '@heroicons/react/24/outline';
 
-const TaskItem= ({task}) =>
+const TaskItem= ({task,deleteTask}) =>
 {
 
 const [isChecked, setIsChecked] =useState(task.checked);
@@ -46,7 +46,7 @@ aria-label={`Update ${task.name} Task`}
 
 <button className={`btn ${styles.delete}`}
 aria-label={`Delete ${task.name} Task`}
-//onClick={}
+onClick={()=>deleteTask(task.id)}
 
 >
 <TrashIcon width={24} height={24}/>
