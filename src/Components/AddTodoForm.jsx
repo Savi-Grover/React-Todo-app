@@ -2,19 +2,24 @@ import React from 'react';
 import { useState } from 'react';
 import {PlusIcon} from '@heroicons/react/24/solid';
 
-const AddTodoForm = () => {
+const AddTodoForm = ({addTask}) => {
 
-    const [ task, setTask] =useState()
+    const [ task, setTask] =useState("");
 
     const handleFormSubmit = (e)=>{
         e.preventDefault();
-        console.log(e);
+        //console.log(e); 
+        addTask({ name : task,
+            checked: false,
+            id: Date.now()
+
+        })
+        setTask("")
     }
     return (  
          <form
          className="todo"
          onSubmit={handleFormSubmit} >
-
             <div className="wrapper">
                 <input type="text"
                 id="task"
